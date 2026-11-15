@@ -1,0 +1,13 @@
+<resources>
+    <color name="bg">#0E0E12</color>
+    <color name="surface">#15151B</color>
+    <color name="surface_high">#22222C</color>
+    <color name="panel">#F2131318</color>
+    <color name="scrim">#99000000</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_muted">#8A8A99</color>
+    <color name="accent">#5B7CFA</color>
+    <!-- 계기판 표시등 색과 맞춤: 비상등은 주황, 방향지시등은 초록 -->
+    <color name="alert_hazard">#FFB020</color>
+    <color name="alert_signal">#3DDC84</color>
+</resources>

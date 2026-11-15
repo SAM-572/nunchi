@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature
+        android:name="android.hardware.type.automotive"
+        android:required="true" />
+
+    <!-- Pleos Vehicle SDK: 방향지시등·무드등 읽기(CAR_LIGHTS), 무드등 색 변경(CONTROL_CAR_LIGHTS), 핸들 각도·브레이크(CAR_DRIVE) -->
+    <uses-permission android:name="pleos.car.permission.CAR_LIGHTS" />
+    <uses-permission android:name="pleos.car.permission.CONTROL_CAR_LIGHTS" />
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <!-- 경고등 조회: 좌·우 방향지시 경고등이 동시에 켜지면 비상등으로 판단 -->
+    <uses-permission android:name="pleos.car.permission.CAR_SAFETY" />
+    <!-- SDK 2.3.2 구현은 경고등 조회에 PRIVATE_CAR_SAFETY를 확인한다 (에뮬레이터 v2.1.0에서는 normal 등급) -->
+    <uses-permission android:name="pleos.car.permission.PRIVATE_CAR_SAFETY" />
+    <!-- Pleos TextToSpeech SDK: 음성 안내 -->
+    <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
+
+    <!-- AAOS 차량 속성: 속도(실행 중 허용 필요), 기어 -->
+    <uses-permission android:name="android.car.permission.CAR_SPEED" />
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+
+    <!-- 화면이 닫혀 있어도 지켜보기, 다른 화면 위에 알리기, 시동 후 자동 시작 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Nunchi">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 주행 중 알림을 보여줘야 하므로 AAOS 주행 중 UX 제한 대상에서 제외 요청 -->
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
+        </activity>
+
+        <service
+            android:name=".NunchiService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="차량 신호(비상등·방향지시등)를 지켜보다가 운전자가 소리를 듣지 못해 놓친 상황을 무드등·음성·알림으로 알립니다." />
+        </service>
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">눈치</string>
+    <string name="tagline">소리를 보는 차</string>
+
+    <!-- 알림 -->
+    <string name="alert_hazard">비상등이 켜져 있어요!</string>
+    <string name="alert_signal_left">왼쪽 깜빡이가 켜져 있어요!</string>
+    <string name="alert_signal_right">오른쪽 깜빡이가 켜져 있어요!</string>
+    <string name="alert_hazard_urgent">아직 비상등이 켜져 있어요!</string>
+    <string name="alert_signal_left_urgent">아직 왼쪽 깜빡이가 켜져 있어요!</string>
+    <string name="alert_signal_right_urgent">아직 오른쪽 깜빡이가 켜져 있어요!</string>
+    <string name="alert_cleared">꺼졌어요 👍</string>
+    <string name="detail_hazard_fired">주행 중 %1$d초째 · 비상등 버튼을 눌러 꺼 주세요</string>
+    <string name="detail_signal_fired">직진 중 %1$d초째 · 레버를 가운데로 돌려 주세요</string>
+    <string name="detail_preview">미리보기 · 실제 알림은 이렇게 보여요</string>
+
+    <!-- 알림 전 상태 -->
+    <string name="watching_hazard">비상등 켜짐 · %1$d초</string>
+    <string name="watching_signal_left">왼쪽 깜빡이 켜짐 · %1$d초</string>
+    <string name="watching_signal_right">오른쪽 깜빡이 켜짐 · %1$d초</string>
+    <string name="watching_signal_turning">깜빡이 켜짐 · 방향을 바꾸는 중이에요</string>
+    <string name="idle_moving">차 소리를 지켜보는 중이에요</string>
+    <string name="idle_parked">출발하면 눈치가 차 소리를 지켜볼게요</string>
+    <string name="idle_parked_signal">정차 중 · 출발하면 시간을 재기 시작해요</string>
+    <string name="locked_while_driving">주행 중에는 열 수 없어요 · 정차 후 이용해 주세요</string>
+
+    <!-- 표시기 -->
+    <string name="indicator_left">왼쪽</string>
+    <string name="indicator_hazard">비상등</string>
+    <string name="indicator_right">오른쪽</string>
+    <string name="chip_parked">%1$s · 정차 중</string>
+    <string name="chip_moving">%1$s · %2$d km/h</string>
+    <string name="chip_moving_no_speed">%1$s · 주행 중</string>
+
+    <!-- 상단 버튼 -->
+    <string name="button_history">기록</string>
+    <string name="button_settings">설정</string>
+    <string name="button_close">닫기</string>
+
+    <!-- 설정 -->
+    <string name="settings_title">설정</string>
+    <string name="settings_hazard">비상등 알림 시점</string>
+    <string name="settings_hazard_hint">비상등을 켠 채 이만큼 달리면 알려요. 고맙다는 표시로 잠깐 켜는 건 알리지 않아요.</string>
+    <string name="settings_signal">깜빡이 알림 시점</string>
+    <string name="settings_signal_hint">핸들이 직진으로 돌아온 뒤에도 깜빡이가 이만큼 켜져 있으면 알려요.</string>
+    <string name="settings_seconds">%1$d초</string>
+    <string name="settings_ambient">무드등으로 알리기</string>
+    <string name="settings_ambient_hint">화면을 보지 않아도 실내 무드등이 깜빡여요.</string>
+    <string name="settings_voice">음성으로도 알리기</string>
+    <string name="settings_voice_hint">또렷한 말소리로 한 번 더 알려요. 동승자도 함께 들을 수 있어요.</string>
+    <string name="settings_on">켜짐</string>
+    <string name="settings_off">꺼짐</string>
+    <string name="settings_preview">알림 미리보기</string>
+    <string name="settings_preview_hint">차를 움직이지 않고 알림이 어떻게 보이는지 확인해요.</string>
+    <string name="settings_log">개발자용 신호 로그</string>
+    <string name="settings_version">눈치 %1$s</string>
+
+    <!-- 기록 -->
+    <string name="history_title">기록</string>
+    <string name="history_today">오늘 눈치가 챙긴 일</string>
+    <string name="history_count">%1$d번</string>
+    <string name="history_empty">아직 알려 드린 일이 없어요.\n깜빡 잊으면 눈치가 챙길게요.</string>
+    <string name="history_hazard">비상등</string>
+    <string name="history_signal_left">왼쪽 깜빡이</string>
+    <string name="history_signal_right">오른쪽 깜빡이</string>
+    <string name="history_row">%1$s · %2$d초 동안 켜져 있었어요</string>
+    <string name="history_clear">기록 지우기</string>
+    <string name="history_privacy">기록은 이 차에만 저장돼요.</string>
+
+    <!-- 신호 로그 -->
+    <string name="log_title">신호 로그</string>
+
+    <!-- 첫 실행 안내 -->
+    <string name="onboarding_title">눈치가 대신 들어 드릴게요</string>
+    <string name="onboarding_1_title">똑딱 소리를 눈으로</string>
+    <string name="onboarding_1_text">비상등·깜빡이가 켜지면 화면에서 같은 박자로 깜빡여요.</string>
+    <string name="onboarding_2_title">깜빡 잊었을 때</string>
+    <string name="onboarding_2_text">켜 둔 채 달리면 눈과 무드등, 음성으로 알려 드려요.</string>
+    <string name="onboarding_3_title">열어 두지 않아도</string>
+    <string name="onboarding_3_text">내비를 보고 있어도 눈치는 뒤에서 계속 지켜봐요.</string>
+    <string name="onboarding_permission">주행 중인지 알기 위해 차량 속도 권한(화면에는 위치 정보로 표시돼요)과 알림 권한을 여쭤볼게요. 눈치는 위치를 저장하거나 보내지 않아요.</string>
+    <string name="onboarding_start">시작하기</string>
+
+    <!-- 시스템 알림 -->
+    <string name="channel_status">지켜보는 중 표시</string>
+    <string name="channel_alert">차 소리 알림</string>
+    <string name="status_title">눈치가 차 소리를 지켜보고 있어요</string>
+    <string name="status_text">비상등·깜빡이를 깜빡 잊으면 알려 드릴게요.</string>
+    <string name="alert_notification_text">눌러서 눈치 열기</string>
+</resources>

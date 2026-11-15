@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <!-- 눈 캐릭터: 위쪽 바와 아래쪽 안내 사이를 채운다 -->
+    <com.nunchi.app.ui.EyeView
+        android:id="@+id/eyes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="330dp" />
+
+    <!-- 위쪽 바 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="36dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="28dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/text_primary"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tagline"
+                android:textColor="@color/text_muted"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/drivingChip"
+            android:layout_width="wrap_content"
+            android:layout_height="76dp"
+            android:background="@drawable/bg_chip"
+            android:gravity="center"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:textColor="@color/text_muted"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/historyButton"
+            style="@style/TopButton"
+            android:text="@string/button_history" />
+
+        <TextView
+            android:id="@+id/settingsButton"
+            style="@style/TopButton"
+            android:text="@string/button_settings" />
+    </LinearLayout>
+
+    <!-- 알림 문구 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="204dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_muted"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <!-- 똑딱 소리를 눈으로: 왼쪽 깜빡이 · 비상등 · 오른쪽 깜빡이 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal">
+
+        <com.nunchi.app.ui.SoundIndicatorView
+            android:id="@+id/leftIndicator"
+            android:layout_width="190dp"
+            android:layout_height="match_parent" />
+
+        <com.nunchi.app.ui.SoundIndicatorView
+            android:id="@+id/hazardIndicator"
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" />
+
+        <com.nunchi.app.ui.SoundIndicatorView
+            android:id="@+id/rightIndicator"
+            android:layout_width="190dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!-- 패널 뒤 어둡게 -->
+    <View
+        android:id="@+id/scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/scrim"
+        android:visibility="gone" />
+
+    <!-- 설정 -->
+    <ScrollView
+        android:id="@+id/settingsPanel"
+        style="@style/Panel">
+
+        <LinearLayout style="@style/PanelContent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/PanelTitle"
+                    android:text="@string/settings_title" />
+
+                <TextView
+                    android:id="@+id/settingsClose"
+                    style="@style/TopButton"
+                    android:text="@string/button_close" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/SettingLabel"
+                android:text="@string/settings_hazard" />
+
+            <TextView
+                style="@style/SettingHint"
+                android:text="@string/settings_hazard_hint" />
+
+            <LinearLayout
+                android:id="@+id/hazardSegments"
+                style="@style/SegmentRow" />
+
+            <TextView
+                style="@style/SettingLabel"
+                android:text="@string/settings_signal" />
+
+            <TextView
+                style="@style/SettingHint"
+                android:text="@string/settings_signal_hint" />
+
+            <LinearLayout
+                android:id="@+id/signalSegments"
+                style="@style/SegmentRow" />
+
+            <TextView
+                style="@style/SettingLabel"
+                android:text="@string/settings_ambient" />
+
+            <TextView
+                style="@style/SettingHint"
+                android:text="@string/settings_ambient_hint" />
+
+            <LinearLayout
+                android:id="@+id/ambientSegments"
+                style="@style/SegmentRow" />
+
+            <TextView
+                style="@style/SettingLabel"
+                android:text="@string/settings_voice" />
+
+            <TextView
+                style="@style/SettingHint"
+                android:text="@string/settings_voice_hint" />
+
+            <LinearLayout
+                android:id="@+id/voiceSegments"
+                style="@style/SegmentRow" />
+
+            <TextView
+                style="@style/SettingLabel"
+                android:text="@string/settings_preview" />
+
+            <TextView
+                style="@style/SettingHint"
+                android:text="@string/settings_preview_hint" />
+
+            <TextView
+                android:id="@+id/previewButton"
+                style="@style/WideButton"
+                android:background="@drawable/bg_pill_selected"
+                android:text="@string/settings_preview" />
+
+            <TextView
+                android:id="@+id/logButton"
+                style="@style/WideButton"
+                android:layout_marginTop="48dp"
+                android:text="@string/settings_log"
+                android:textColor="@color/text_muted" />
+
+            <TextView
+                android:id="@+id/versionText"
+                style="@style/SettingHint"
+                android:layout_marginTop="24dp"
+                android:gravity="center" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 기록 -->
+    <ScrollView
+        android:id="@+id/historyPanel"
+        style="@style/Panel">
+
+        <LinearLayout style="@style/PanelContent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/PanelTitle"
+                    android:text="@string/history_title" />
+
+                <TextView
+                    android:id="@+id/historyClose"
+                    style="@style/TopButton"
+                    android:text="@string/button_close" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="32dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history_today"
+                    android:textColor="@color/text_muted"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/historyCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="64sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/historyList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/historyClear"
+                style="@style/WideButton"
+                android:layout_marginTop="32dp"
+                android:text="@string/history_clear"
+                android:textColor="@color/text_muted" />
+
+            <TextView
+                style="@style/SettingHint"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/history_privacy" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 개발자용 신호 로그 -->
+    <ScrollView
+        android:id="@+id/logPanel"
+        style="@style/Panel">
+
+        <LinearLayout style="@style/PanelContent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/PanelTitle"
+                    android:text="@string/log_title" />
+
+                <TextView
+                    android:id="@+id/logClose"
+                    style="@style/TopButton"
+                    android:text="@string/button_close" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/logState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="monospace"
+                android:textColor="@color/alert_signal"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/logText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="monospace"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 첫 실행 안내 -->
+    <FrameLayout
+        android:id="@+id/onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="760dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/onboarding_title"
+                android:textColor="@color/text_primary"
+                android:textSize="44sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/OnboardingTitle"
+                android:layout_marginTop="40dp"
+                android:text="@string/onboarding_1_title" />
+
+            <TextView
+                style="@style/OnboardingText"
+                android:text="@string/onboarding_1_text" />
+
+            <TextView
+                style="@style/OnboardingTitle"
+                android:text="@string/onboarding_2_title" />
+
+            <TextView
+                style="@style/OnboardingText"
+                android:text="@string/onboarding_2_text" />
+
+            <TextView
+                style="@style/OnboardingTitle"
+                android:text="@string/onboarding_3_title" />
+
+            <TextView
+                style="@style/OnboardingText"
+                android:text="@string/onboarding_3_text" />
+
+            <TextView
+                style="@style/SettingHint"
+                android:layout_marginTop="40dp"
+                android:text="@string/onboarding_permission" />
+
+            <TextView
+                android:id="@+id/onboardingStart"
+                style="@style/WideButton"
+                android:layout_height="88dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_pill_selected"
+                android:text="@string/onboarding_start"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>
